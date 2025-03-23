@@ -7,7 +7,7 @@ from nltk.corpus import gutenberg
 ## load the dataset
 data=gutenberg.raw('shakespeare-hamlet.txt')
 ## save to a file
-with open('DAY - 7 LSTM & GRU PROJECT/hamlet.txt','w') as file:
+with open('hamlet.txt','w') as file:
     file.write(data)
 
 ## Data Preprocessing
@@ -18,7 +18,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.model_selection import train_test_split
 
 ##laod the dataset
-with open('DAY - 7 LSTM & GRU PROJECT/hamlet.txt','r') as file:
+with open('hamlet.txt','r') as file:
     text=file.read().lower()
 
 ## Tokenize the text-creating indexes for words
@@ -118,15 +118,15 @@ next_word=predict_next_word(model,tokenizer,input_text,max_sequence_len)
 print(f"Next Word PRediction:{next_word}")
 
 ## Save the model
-# model.save("DAY - 7 LSTM & GRU PROJECT/next_word_lstm.h5")
+# model.save("next_word_lstm.h5")
 
 # Save the model
-model.save("DAY - 7 LSTM & GRU PROJECT/next_word_gru.h5")
+model.save("next_word_gru.h5")
 
 
 ## Save the tokenizer
 import pickle
-with open('DAY - 7 LSTM & GRU PROJECT/tokenizer.pickle','wb') as handle:
+with open('tokenizer.pickle','wb') as handle:
     pickle.dump(tokenizer,handle,protocol=pickle.HIGHEST_PROTOCOL)
 
 input_text="  Barn. Last night of all,When yond same"
